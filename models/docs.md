@@ -10,10 +10,6 @@ Boolean representing whether the record was soft-deleted in Qualtrics.
 Boolean representing whether modification of the block and its contents is prevented.
 {% enddocs %}
 
-{% docs block_locking %}
-Boolean representing whether modification of the block and its contents is prevented.
-{% enddocs %}
-
 {% docs block_visibility %}
 Whether the questions in the block are 'collapsed' or 'expanded' by default.
 {% enddocs %}
@@ -27,7 +23,7 @@ The ID of the survey block. Match pattern = ^BL_[a-zA-Z0-9]{11,15}$
 {% enddocs %}
 
 {% docs randomize_questions %}
-If/how the block questions are randomized. Can be: `false` (no randomization), `RandomWithXPerPage` (randomize all and place X questions in each block), `RandomWithOnlyX` (randomly present only X out of the total questions), or `Advanced` (custom configuration)
+If/how the block questions are randomized. Can be - `false` (no randomization), `RandomWithXPerPage` (randomize all and place X questions in each block), `RandomWithOnlyX` (randomly present only X out of the total questions), or `Advanced` (custom configuration)
 {% enddocs %}
 
 {% docs survey_id %}
@@ -165,7 +161,7 @@ The unique identifier for a specific user who owns this.
 {% docs project_category %}
 Project category of the survey.
 
-Allowed values: `CORE`, `CX`, `EX`, `BX`, `PX`
+Allowed values - `CORE`, `CX`, `EX`, `BX`, `PX`
 {% enddocs %}
 
 {% docs project_type %}
@@ -203,11 +199,15 @@ Name of the survey.
 {% docs survey_status %}
 The distribution status of the survey, or a flag indicating that it's a library block
 
-Allowed values: `Inactive`, `Active`, `Pending`, `LibBlock`, `Deactive`, `Temporary`
+Allowed values - `Inactive`, `Active`, `Pending`, `LibBlock`, `Deactive`, `Temporary`
 {% enddocs %}
 
 {% docs data_export_tag %}
 The tag to identify the question in exported data.
+{% enddocs %}
+
+{% docs choice_data_export_tag %}
+The tag to identify the question choice in exported data.
 {% enddocs %}
 
 {% docs data_visibility_hidden %}
@@ -250,12 +250,12 @@ Un-paresed version of the question text.
 {% enddocs %}
 
 {% docs question_type %}
-The type of question. Can be:
+The type of question. Can be -
 `MC`,`Matrix`,`Captcha`,`CS`,`DB`,`DD`,`Draw`,`DynamicMatrix`,`FileUpload`,`GAP`,`HeatMap`,`HL`,`HotSpot`,`Meta`,`PGR`,`RO`,`SBS`,`Slider`,`SS`,`TE`,`Timing`,`TreeSelect`
 {% enddocs %}
 
 {% docs selector %}
-How answers are selected such as single answer, multiple answer, etc. Accepted values:
+How answers are selected such as single answer, multiple answer, etc. Accepted values - 
 - `Bipolar`
 - `Browser`
 - `Captcha`
@@ -317,8 +317,7 @@ How answers are selected such as single answer, multiple answer, etc. Accepted v
 {% enddocs %}
 
 {% docs sub_selector %}
-How subquestion answers are selected. Allowed values: SingleAnswer, DL, GR, DND, Long, Medium, MultipleAnswer, Columns, NoColumns, Short, TX, TXOT, WOTXB, WOTB, WTB, WTXB, WVTB
-
+How subquestion answers are selected. Allowed values - SingleAnswer, DL, GR, DND, Long, Medium, MultipleAnswer, Columns, NoColumns, Short, TX, TXOT, WOTXB, WOTB, WTB, WTXB, WVTB.
 {% enddocs %}
 
 {% docs validation_setting_force_response %}
@@ -361,10 +360,6 @@ Sub question text.
 Value of the question response.
 {% enddocs %}
 
-{% docs question_option_key %}
-Question option key.
-{% enddocs %}
-
 {% docs recode_value %}
 Recode/mapping value for the option.
 {% enddocs %}
@@ -387,7 +382,6 @@ The point in time when the survey response was finished.
 
 {% docs finished %}
 Boolean (stored as int) indicating if the respondent finished and submitted the survey, the value will be 1, otherwise it will be 0.
-
 {% enddocs %}
 
 {% docs response_id %}
@@ -419,7 +413,8 @@ Email of the [recipient](https://api.qualtrics.com/ZG9jOjg3NzY2OQ-getting-inform
 {% enddocs %}
 
 {% docs recipient_first_name %}
-First name of the [recipient](https://api.qualtrics.com/ZG9jOjg3NzY2OQ-getting-information-about-distributions#the-recipients-object) if they are a single recipient (not a mailing list or sample).{% enddocs %}
+First name of the [recipient](https://api.qualtrics.com/ZG9jOjg3NzY2OQ-getting-information-about-distributions#the-recipients-object) if they are a single recipient (not a mailing list or sample).
+{% enddocs %}
 
 {% docs recipient_last_name %}
 Last name of the [recipient](https://api.qualtrics.com/ZG9jOjg3NzY2OQ-getting-information-about-distributions#the-recipients-object) if they are a single recipient (not a mailing list or sample).
@@ -506,7 +501,7 @@ Boolean representing if directory contacts are deduped based on phone number.
 {% enddocs %}
 
 {% docs directory_id %}
-The directory ID, also known as a pool ID. Example: POOL_012345678901234
+The directory ID, also known as a pool ID. Example - POOL_012345678901234
 {% enddocs %}
 
 {% docs is_default %}
@@ -544,7 +539,7 @@ Contact's first name.
 {% enddocs %}
 
 {% docs contact_id %}
-The ID for the contact. Example: CID_012345678901234
+The ID for the contact. Example - CID_012345678901234
 {% enddocs %}
 
 {% docs contact_last_name %}
@@ -636,7 +631,7 @@ The unique survey ID. Will be non-null even if `request_type` != `Invite`.
 {% enddocs %}
 
 {% docs contact_frequency_rule_id %}
-The contact frequency Rule ID. Ex: FQ_AAB234234
+The contact frequency Rule ID. Ex - FQ_AAB234234
 {% enddocs %}
 
 {% docs contact_lookup_id %}
@@ -665,22 +660,22 @@ The time a survey was sent to the respondent.
 
 {% docs distribution_status %}
 One of:
-- `Pending`: The distribution is scheduled but has yet to be sent.
-- `Success`: The distribution was successfully delivered to the contact.
-- `Error`: An error occurred while attempting to send the distribution.
-- `Opened`: The distribution was opened by the contact.
-- `Complaint`: The contact complained that the distribution was spam.
-- `Skipped`: The contact was skipped due to contact frequency rules or blacklisted contact information.
-- `Blocked`: The distribution failed to send, because the contact blocked it or the email was caught by the spam circuit breaker.
-- `Failure`: The distribution failed to be delivered.
-- `Unknown`: The distribution failed for an unknown reason.
-- `SoftBounce`: The distribution bounced but can be retried.
-- `HardBounce`: The distribution bounced and should not be retried.
-- `SurveyStarted`: The contact started the survey distributed.
-- `SurveyPartiallyFinished`: The contact submitted a partially completed survey response.
-- `SurveyFinished`: The contact submitted a completed survey response.
-- `SurveyScreenedOut`: The contact screened out while taking the survey.
-- `SessionExpired`: The contact's survey session has expired.
+- `Pending` - The distribution is scheduled but has yet to be sent.
+- `Success` - The distribution was successfully delivered to the contact.
+- `Error` - An error occurred while attempting to send the distribution.
+- `Opened` - The distribution was opened by the contact.
+- `Complaint` - The contact complained that the distribution was spam.
+- `Skipped` - The contact was skipped due to contact frequency rules or blacklisted contact information.
+- `Blocked` - The distribution failed to send, because the contact blocked it or the email was caught by the spam circuit breaker.
+- `Failure` - The distribution failed to be delivered.
+- `Unknown` - The distribution failed for an unknown reason.
+- `SoftBounce` - The distribution bounced but can be retried.
+- `HardBounce` - The distribution bounced and should not be retried.
+- `SurveyStarted` - The contact started the survey distributed.
+- `SurveyPartiallyFinished` - The contact submitted a partially completed survey response.
+- `SurveyFinished` - The contact submitted a completed survey response.
+- `SurveyScreenedOut` - The contact screened out while taking the survey.
+- `SessionExpired` - The contact's survey session has expired.
 {% enddocs %}
 
 {% docs survey_link %}

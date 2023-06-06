@@ -18,10 +18,12 @@
 <!--section="qualtrics_source_model"-->
 - Materializes [Qualtrics staging tables](https://fivetran.github.io/dbt_qualtrics_source/#!/overview/github_source/models/?g_v=1) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/qualtrics/#schemainformation). These staging tables clean, test, and prepare your Qualtrics data from [Fivetran's connector](https://fivetran.com/docs/applications/qualtrics) for analysis by doing the following:
   - Name columns for consistency across all packages and for easier analysis
+    - Primary keys are renamed from `id` to `<table name>_id`. 
+    - Foreign key names explicitly map onto their related tables (ie `owner_id` -> `owner_user_id`).
+    - Datetime fields are renamed to `<event happened>_at`.
   - Adds freshness tests to source data
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your Qualtrics data through the [dbt docs site](https://fivetran.github.io/dbt_qualtrics_source/).
-- Converts all relevant timestamps into your timezone of choice, if given.
 - These tables are designed to work simultaneously with our [Qualtrics transformation package](https://github.com/fivetran/dbt_qualtrics).
 <!--section-end-->
 
@@ -57,20 +59,7 @@ vars:
     qualtrics_schema: your_schema_name 
 ```
 
-## Step 5: Setting your timezone
-By default, the data in your Qualtrics schema is in UTC. However, you may want reporting to reflect a specific timezone for more realistic analysis or data validation. 
-
-To convert the timezone of **all** timestamps in the package, update the `qualtrics_timezone` variable to your target zone in [IANA tz Database format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones):
-```yml
-# dbt_project.yml
-
-vars:
-    qualtrics_timezone: "America/New_York" # Replace with your timezone
-```
-
-> **Note**: This will only **numerically** convert timestamps to your target timezone. They will however have a "UTC" appended to them. This is a current limitation of the dbt-date `convert_timezone` [macro](https://github.com/calogica/dbt-date#convert_timezone-column-target_tznone-source_tznone) we leverage. 
-
-## (Optional) Step 6: Additional configurations
+## (Optional) Step 4: Additional configurations
 <details><summary>Expand to view configurations</summary>
     
 ### Passing Through Additional Fields
@@ -80,25 +69,22 @@ This package includes all source columns defined in the macros folder. You can a
 # dbt_project.yml
 
 vars:
-  qualtrics_source: # todo
-    customer_pass_through_columns:
-      - name: "customer_custom_field"
-        alias: "customer_field"
-    order_line_refund_pass_through_columns:
-      - name: "unique_string_field"
-        alias: "field_id"
-        transform_sql: "cast(field_id as string)"
-    order_line_pass_through_columns:
+  qualtrics_source:
+    survey_pass_through_columns:
       - name: "that_field"
-    order_pass_through_columns:
-      - name: "sub_field"
-        alias: "subsidiary_field"
-    product_pass_through_columns:
+        alias: "renamed_to_this_field"
+        transform_sql: "cast(renamed_to_this_field as string)"
+    directory_pass_through_columns:
       - name: "this_field"
-    product_variant_pass_through_columns:
-      - name: "new_custom_field"
-        alias: "custom_field"
+    directory_contact_pass_through_columns:
+      - name: "old_name"
+        alias: "new_name"
+    distribution_pass_through_columns:
+      - name: "unique_string_field"
+        transform_sql: "cast(unique_string_field as string)"
 ```
+
+> Please create an [issue](https://github.com/fivetran/dbt_qualtrics_source/issues) if you'd like to see passthrough column support for other tables in the Qualtrics schema.
 
 ### Changing the Build Schema
 By default this package will build the Qualtrics staging models within a schema titled (<target_schema> + `_stg_qualtrics`) in your target database. If this is not where you would like your staging qualtrics data to be written to, add the following configuration to your `dbt_project.yml` file:
@@ -124,7 +110,7 @@ vars:
 
 </details>
 
-## (Optional) Step 7: Orchestrate your models with Fivetran Transformations for dbt Core™
+## (Optional) Step 5: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand to view details</summary>
 <br>
     
@@ -141,12 +127,6 @@ packages:
 
     - package: dbt-labs/dbt_utils
       version: [">=1.0.0", "<2.0.0"]
-
-    - package: calogica/dbt_expectations
-      version: [">=0.8.0", "<0.9.0"]
-
-    - package: calogica/dbt_date
-      version: [">=0.7.0", "<0.8.0"]
       
     - package: dbt-labs/spark_utils
       version: [">=0.3.0", "<0.4.0"]

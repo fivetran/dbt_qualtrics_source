@@ -3,12 +3,11 @@ version: 2
 sources:
   - name: qualtrics
     schema: "{{ var('qualtrics_schema', 'qualtrics') }}"
-    database: "{% if target.type not in ('spark') %}{{ var('qualtrics_database', target.database) }}{% endif %}"
+    database: "{% if target.type != 'spark' %}{{ var('qualtrics_database', target.database) }}{% endif %}"
     tables:
       - name: user
         identifier: "{{ var('qualtrics_user_identifier', 'user') }}"
-        description: >
-          These are the users in your organizations, not the contacts for whom you are building content like surveys and messages.
+        description: These are the users in your organizations, not the contacts for whom you are building content like surveys and messages.
         columns:
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
@@ -57,7 +56,7 @@ sources:
 
       - name: survey
         identifier: "{{ var('qualtrics_survey_identifier', 'survey') }}"
-        description: TODO
+        description: Qualtrics survey.
         columns:
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
@@ -88,7 +87,7 @@ sources:
           - name: last_activated
             description: "{{ doc('last_activated') }}"
           - name: last_modified
-            description: "{{ doc('last_modified') }}"
+            description: "{{ doc('last_modified_date') }}"
           - name: owner_id
             description: "{{ doc('owner_id') }}"
           - name: project_category
@@ -114,6 +113,7 @@ sources:
 
       - name: question
         identifier: "{{ var('qualtrics_question_identifier', 'question') }}"
+        description: Questions within a survey.
         columns:
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
@@ -156,6 +156,7 @@ sources:
 
       - name: question_response
         identifier: "{{ var('qualtrics_question_response_identifier', 'question_response') }}"
+        description: Responses to individual questions (and their sub-questions).
         columns:
           - name: _fivetran_id
             description: "{{ doc('_fivetran_id') }}"
@@ -177,9 +178,10 @@ sources:
             description: "{{ doc('sub_question_text') }}"
           - name: value
             description: "{{ doc('response_value') }}"
-            
+
       - name: question_option
         identifier: "{{ var('qualtrics_question_option_identifier', 'question_option') }}"
+        description: Choice options for survey questions.
         columns:
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
@@ -198,6 +200,7 @@ sources:
 
       - name: survey_response
         identifier: "{{ var('qualtrics_survey_response_identifier', 'survey_response') }}"
+        description: Individual responses to surveys.
         columns:
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
@@ -240,7 +243,8 @@ sources:
 
       - name: sub_question
         identifier: "{{ var('qualtrics_sub_question_identifier', 'sub_question') }}"
-        columns: 
+        description: Sub-questions of questions.
+        columns:
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
           - name: _fivetran_synced
@@ -258,6 +262,7 @@ sources:
 
       - name: survey_version
         identifier: "{{ var('qualtrics_survey_version_identifier', 'survey_version') }}"
+        description: Published and un-published versions of surveys.
         columns:
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
@@ -282,6 +287,7 @@ sources:
 
       - name: survey_embedded_data
         identifier: "{{ var('qualtrics_survey_embedded_data_identifier', 'survey_embedded_data') }}"
+        description: Any extra information you would like recorded in addition to the question responses.
         columns:
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
@@ -299,26 +305,27 @@ sources:
         description: Groups of questions, used to organize longer surveys and conditionally display sets of questions.
         columns:
           - name: _fivetran_deleted
-            descrption: "{{ doc('_fivetran_deleted') }}"
+            description: "{{ doc('_fivetran_deleted') }}"
           - name: _fivetran_synced
-            descrption: "{{ doc('_fivetran_synced') }}"
+            description: "{{ doc('_fivetran_synced') }}"
           - name: block_locking
-            descrption: "{{ doc('block_locking') }}"
+            description: "{{ doc('block_locking') }}"
           - name: block_visibility
-            descrption: "{{ doc('block_visibility') }}"
+            description: "{{ doc('block_visibility') }}"
           - name: description
-            descrption: "{{ doc('block_description') }}"
+            description: "{{ doc('block_description') }}"
           - name: id
-            descrption: "{{ doc('block_id') }}"
+            description: "{{ doc('block_id') }}"
           - name: randomize_questions
-            descrption: "{{ doc('randomize_questions') }}"
+            description: "{{ doc('randomize_questions') }}"
           - name: survey_id
-            descrption: "{{ doc('survey_id') }}"
+            description: "{{ doc('survey_id') }}"
           - name: type
-            descrption: "{{ doc('block_type') }}"
+            description: "{{ doc('block_type') }}"
 
       - name: block_question
         identifier: "{{ var('qualtrics_block_question_identifier', 'block_question') }}"
+        description: Table relating questions and blocks together.
         columns:
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
@@ -333,6 +340,7 @@ sources:
 
       - name: directory
         identifier: "{{ var('qualtrics_directory_identifier', 'directory') }}"
+        description: A directory is an address book for the entire brand and contains all of the contacts that have been added by your users.
         columns:
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
@@ -357,6 +365,7 @@ sources:
 
       - name: directory_contact
         identifier: "{{ var('qualtrics_directory_contact_identifier', 'directory_contact') }}"
+        description: Tablle relating contacts to the directories they are a part of.
         columns:
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
@@ -391,6 +400,7 @@ sources:
 
       - name: distribution
         identifier: "{{ var('qualtrics_distribution_identifier', 'distribution') }}"
+        description: Use distributions to reach out to contacts in the XM Directory platform, with or without a survey attached.
         columns:
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
@@ -445,6 +455,7 @@ sources:
 
       - name: distribution_contact
         identifier: "{{ var('qualtrics_distribution_contact_identifier', 'distribution_contact') }}"
+        description: Table relating contacts to distributiins they've been a part of.
         columns:
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
@@ -475,6 +486,7 @@ sources:
 
       - name: directory_mailing_list
         identifier: "{{ var('qualtrics_directory_mailing_list_identifier', 'directory_mailing_list') }}"
+        description: Mailing lists are lists of contacts that can receive emails and survey invitations. You can create mailing lists either through file upload or manually.
         columns:
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"
@@ -495,6 +507,7 @@ sources:
 
       - name: contact_mailing_list_membership
         identifier: "{{ var('qualtrics_contact_mailing_list_membership_identifier', 'contact_mailing_list_membership') }}"
+        description: Table relating contacts to mailing lists they are a part of.
         columns:
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"

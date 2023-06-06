@@ -22,7 +22,7 @@ final as (
     select 
         creation_date as created_at,
         directory_id,
-        id as directory_mailing_list_id,
+        id as mailing_list_id,
         last_modified_date as last_modified_at,
         name,
         owner_id as owner_user_id,

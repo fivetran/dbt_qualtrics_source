@@ -30,7 +30,7 @@ final as (
         division_id,
         id as survey_id,
         last_accessed as last_accessed_at,
-        last_activated as last_activated_at
+        last_activated as last_activated_at,
         last_modified as last_modified_at,
         owner_id as owner_user_id,
         project_category,

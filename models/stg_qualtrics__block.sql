@@ -20,7 +20,7 @@ fields as (
 final as (
     
     select 
-        block_locking as is_block_locked,
+        block_locking as is_locked,
         block_visibility,
         description,
         id as block_id,

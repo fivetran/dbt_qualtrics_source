@@ -27,8 +27,8 @@ final as (
         header_subject,
         id as distribution_id,
         message_library_id,
-        message_message_id as library_message_id,
-        message_message_text as message_text
+        message_message_id as message_id,
+        message_message_text as message_text,
         modified_date as last_modified_at,
         organization_id,
         owner_id as owner_user_id,

@@ -30,7 +30,7 @@ final as (
         first_name,
         last_name,
         phone,
-        id as directory_contact_id,
+        id as contact_id,
         language,
         last_modified as last_modified_at,
         write_blanks as can_write_blanks,
