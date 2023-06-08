@@ -12,7 +12,7 @@
         href="https://fivetran.com/docs/transformations/dbt/quickstart">
         <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
-
+ 
 # Qualtrics Source dbt Package ([Docs](https://fivetran.github.io/dbt_qualtrics_source/))
 # 📣 What does this dbt package do?
 <!--section="qualtrics_source_model"-->
