@@ -59,7 +59,16 @@ vars:
     qualtrics_schema: your_schema_name 
 ```
 
-## (Optional) Step 4: Additional configurations
+## Step 4: Enable Research Core Contacts API
+By default, this package does not bring in data from the Qualtrics Research Core Contacts [Endpoint](https://api.qualtrics.com/10b9ce5afbf17-research-core-contacts), as this API is set to be [deprecated](https://api.qualtrics.com/10b9ce5afbf17-research-core-contacts#deprecation-notice) by Qualtrics. However, if you would like the package to bring in Core **contacts** and **mailing lists** in addition to XM Directory data, add the following configuration to your `dbt_project.yml`:
+
+```yml
+vars:
+    qualtrics__using_core_contacts: True # default = False
+    qualtrics__using_core_mailing_lists: True # default = False
+```
+
+## (Optional) Step 5: Additional configurations
 <details><summary>Expand to view configurations</summary>
     
 ### Passing Through Additional Fields
@@ -112,7 +121,7 @@ vars:
 
 </details>
 
-## (Optional) Step 5: Orchestrate your models with Fivetran Transformations for dbt Core™
+## (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand to view details</summary>
 <br>
     
