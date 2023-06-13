@@ -31,6 +31,8 @@ final as (
         _fivetran_deleted as is_deleted,
         _fivetran_synced
 
+        {{ fivetran_utils.fill_pass_through_columns('directory_pass_through_columns') }}
+
     from fields
 )
 

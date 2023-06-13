@@ -36,6 +36,8 @@ final as (
         write_blanks as can_write_blanks,
         _fivetran_synced
 
+        {{ fivetran_utils.fill_pass_through_columns('directory_contact_pass_through_columns') }}
+
     from fields
 )
 

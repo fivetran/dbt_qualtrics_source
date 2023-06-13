@@ -28,6 +28,8 @@
     {"name": "survey_status", "datatype": dbt.type_string()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('survey_pass_through_columns')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}

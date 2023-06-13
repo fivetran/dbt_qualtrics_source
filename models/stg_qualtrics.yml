@@ -580,3 +580,53 @@ models:
         description: "{{ doc('mailing_list_unsubscribe_date') }}"
       - name: is_unsubscribed
         description: "{{ doc('mailing_list_unsubscribed') }}"
+
+  - name: stg_qualtrics__core_contact
+    description: Research Core contacts (non-XM directory).
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - mailing_list_contact_id
+            - mailing_list_id
+    columns:
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
+      - name: mailing_list_contact_id
+        description: "{{ doc('mailing_list_contact_id') }}"
+      - name: mailing_list_id
+        description: "{{ doc('mailing_list_id') }}"
+      - name: first_name
+        description: "{{ doc('contact_first_name') }}"
+      - name: last_name
+        description: "{{ doc('contact_last_name') }}"
+      - name: email
+        description: "{{ doc('contact_email') }}"
+      - name: external_data_reference
+        description: "{{ doc('ext_ref') }}"
+      - name: language
+        description: "{{ doc('language') }}"
+      - name: is_unsubscribed
+        description: "{{ doc('unsubscribed') }}"
+      - name: is_deleted
+        description: "{{ doc('_fivetran_deleted') }}"
+
+  - name: stg_qualtrics__core_mailing_list
+    description: Research Core mailing list (non xm-directory).
+    columns:
+      - name: is_deleted
+        description: "{{ doc('_fivetran_deleted') }}"
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
+      - name: mailing_list_id
+        description: "{{ doc('mailing_list_id') }}"
+        tests:
+          - unique
+          - not_null
+      - name: library_id
+        description: "{{ doc('library_id') }}"
+      - name: name
+        description: "{{ doc('mailing_list_name') }}"
+      - name: category
+        description: "{{ doc('mailing_list_category') }}"
+      - name: folder
+        description: "{{ doc('folder') }}"

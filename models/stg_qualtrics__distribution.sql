@@ -45,6 +45,9 @@ final as (
         survey_link_survey_id as survey_id,
         _fivetran_deleted as is_deleted,
         _fivetran_synced
+
+        {{ fivetran_utils.fill_pass_through_columns('distribution_pass_through_columns') }}
+
     from fields
 )
 

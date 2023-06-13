@@ -82,6 +82,8 @@ vars:
     distribution_pass_through_columns:
       - name: "unique_string_field"
         transform_sql: "cast(unique_string_field as string)"
+    core_contact_pass_through_columns: # relevant only if you have `core_*` tables enabled
+      - name: "pass_this_through"
 ```
 
 > Please create an [issue](https://github.com/fivetran/dbt_qualtrics_source/issues) if you'd like to see passthrough column support for other tables in the Qualtrics schema.

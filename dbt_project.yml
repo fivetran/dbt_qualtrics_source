@@ -29,3 +29,11 @@ vars:
     contact_mailing_list_membership: "{{ source('qualtrics', 'contact_mailing_list_membership') }}"
     distribution: "{{ source('qualtrics', 'distribution') }}"
     distribution_contact: "{{ source('qualtrics', 'distribution_contact') }}"
+    core_contact: "{{ source('qualtrics', 'core_contact') }}"
+    core_mailing_list: "{{ source('qualtrics', 'core_mailing_list') }}"
+
+    survey_pass_through_columns: []
+    directory_pass_through_columns: []
+    directory_contact_pass_through_columns: []
+    distribution_pass_through_columns: []
+    core_contact_pass_through_columns: []

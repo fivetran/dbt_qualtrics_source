@@ -694,14 +694,26 @@ The ID for the mailing list.
 Name of the mailing list.
 {% enddocs %}
 
-{% docs contact_mailing_list_id %}
-Contact Mailing List ID
-{% enddocs %}
-
 {% docs mailing_list_unsubscribed %}
 Boolean indicating whether the contact has opted out of receiving email through this mailing list.
 {% enddocs %}
 
 {% docs mailing_list_unsubscribe_date %}
 Date and time the user opted out of this mailing list.
+{% enddocs %}
+
+{% docs mailing_list_contact_id %}
+Mailing List Contact ID (different from `contact_id`). ex: `MLRP_*`
+{% enddocs %}
+
+{% docs library_id %}
+The library ID. Example: `UR_1234567890AbCdE`
+{% enddocs %}
+
+{% docs mailing_list_category %}
+The library ID. Example: `UR_1234567890AbCdE`
+{% enddocs %}
+
+{% docs folder %}
+The folder this is placed in.
 {% enddocs %}
