@@ -5,7 +5,7 @@ config-version: 2
 
 vars:
   qualtrics_schema: qualtrics_source_integration_tests
-
+ 
 dispatch:
   - macro_namespace: dbt_utils
     search_order: ['spark_utils', 'dbt_utils']

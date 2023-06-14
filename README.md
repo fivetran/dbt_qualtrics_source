@@ -13,7 +13,7 @@
         <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
  
-# Qualtrics Source dbt Package ([Docs](https://fivetran.github.io/dbt_qualtrics_source/))
+# Qualtrics Source dbt Package ([Docs](https://fivetran.github.io/dbt_qualtrics_source/)) 
 # 📣 What does this dbt package do?
 <!--section="qualtrics_source_model"-->
 - Materializes [Qualtrics staging tables](https://fivetran.github.io/dbt_qualtrics_source/#!/overview/github_source/models/?g_v=1) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/qualtrics/#schemainformation). These staging tables clean, test, and prepare your Qualtrics data from [Fivetran's connector](https://fivetran.com/docs/applications/qualtrics) for analysis by doing the following:
@@ -21,7 +21,7 @@
     - Primary keys are renamed from `id` to `<table name>_id`. 
     - Foreign key names explicitly map onto their related tables (ie `owner_id` -> `owner_user_id`).
     - Datetime fields are renamed to `<event happened>_at`.
-  - Adds freshness tests to source data
+  - Adds freshness tests to source data 
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your Qualtrics data through the [dbt docs site](https://fivetran.github.io/dbt_qualtrics_source/).
 - These tables are designed to work simultaneously with our [Qualtrics transformation package](https://github.com/fivetran/dbt_qualtrics).
@@ -64,8 +64,8 @@ By default, this package does not bring in data from the Qualtrics Research Core
 
 ```yml
 vars:
-    qualtrics__using_core_contacts: True # default = False
-    qualtrics__using_core_mailing_lists: True # default = False
+    qualtrics__using_core_contacts: True # default = False 
+    qualtrics__using_core_mailing_lists: True # default = False 
 ```
 
 ## (Optional) Step 5: Additional configurations
@@ -79,7 +79,7 @@ This package includes all source columns defined in the macros folder. You can a
 
 vars:
   qualtrics_source:
-    survey_pass_through_columns:
+    survey_pass_through_columns: 
       - name: "that_field"
         alias: "renamed_to_this_field"
         transform_sql: "cast(renamed_to_this_field as string)"
@@ -91,14 +91,14 @@ vars:
     distribution_pass_through_columns:
       - name: "unique_string_field"
         transform_sql: "cast(unique_string_field as string)"
-    core_contact_pass_through_columns: # relevant only if you have `core_*` tables enabled
+    core_contact_pass_through_columns: # relevant only if you have `core_*` tables enabled 
       - name: "pass_this_through"
 ```
 
 > Please create an [issue](https://github.com/fivetran/dbt_qualtrics_source/issues) if you'd like to see passthrough column support for other tables in the Qualtrics schema.
 
-### Changing the Build Schema
-By default this package will build the Qualtrics staging models within a schema titled (<target_schema> + `_stg_qualtrics`) in your target database. If this is not where you would like your staging qualtrics data to be written to, add the following configuration to your `dbt_project.yml` file:
+### Changing the Build Schema 
+By default this package will build the Qualtrics staging models within a schema titled (<target_schema> + `_stg_qualtrics`) in your target database. If this is not where you would like your staging qualtrics data to be written to, add the following configuration to your `dbt_project.yml` file: 
 
 ```yml
 # dbt_project.yml

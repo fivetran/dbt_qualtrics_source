@@ -1,4 +1,4 @@
-**Are you a current Fivetran customer?** 
+**Are you a current Fivetran customer?**  
 <!--- Please tell us your name, title and company -->
 
 **What change(s) does this PR introduce?** 
