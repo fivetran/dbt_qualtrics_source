@@ -13,7 +13,7 @@
     {"name": "name", "datatype": dbt.type_string()}
 ] %}
 
-{{ fivetran_utils.add_pass_through_columns(columns, var('directory_pass_through_columns')) }}
+{{ fivetran_utils.add_pass_through_columns(columns, var('qualtrics__directory_pass_through_columns')) }}
 
 {{ return(columns) }}
 

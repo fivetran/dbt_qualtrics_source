@@ -284,7 +284,7 @@ models:
             - version_id
             - survey_id
     columns:
-      - name: _fivetran_deleted
+      - name: is_deleted
         description: "{{ doc('_fivetran_deleted') }}"
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
@@ -298,7 +298,7 @@ models:
         description: "{{ doc('published') }}"
       - name: survey_id
         description: "{{ doc('survey_id') }}"
-      - name: publisher_ser_id
+      - name: publisher_user_id
         description: "{{ doc('publisher_user_id') }}"
       - name: version_number
         description: "{{ doc('version_number') }}"
@@ -461,7 +461,7 @@ models:
         tests:
           - unique
           - not_null
-      - name: library_id
+      - name: message_library_id
         description: "{{ doc('message_library_id') }}"
       - name: message_id
         description: "{{ doc('message_message_id') }}"
@@ -471,7 +471,7 @@ models:
         description: "{{ doc('last_modified_date') }}"
       - name: organization_id
         description: "{{ doc('organization_id') }}"
-      - name: owner_id
+      - name: owner_user_id
         description: "{{ doc('owner_id') }}"
       - name: parent_distribution_id
         description: "{{ doc('parent_distribution_id') }}"

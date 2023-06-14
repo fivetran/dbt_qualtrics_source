@@ -13,7 +13,7 @@
     {"name": "_fivetran_deleted", "datatype": "boolean"}
 ] %}
 
-{{ fivetran_utils.add_pass_through_columns(columns, var('core_contact_pass_through_columns')) }}
+{{ fivetran_utils.add_pass_through_columns(columns, var('qualtrics__core_contact_pass_through_columns')) }}
 
 {{ return(columns) }}
 

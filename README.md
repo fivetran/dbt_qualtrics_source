@@ -21,10 +21,11 @@
     - Primary keys are renamed from `id` to `<table name>_id`. 
     - Foreign key names explicitly map onto their related tables (ie `owner_id` -> `owner_user_id`).
     - Datetime fields are renamed to `<event happened>_at`.
-  - Adds freshness tests to source data
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your Qualtrics data through the [dbt docs site](https://fivetran.github.io/dbt_qualtrics_source/).
 - These tables are designed to work simultaneously with our [Qualtrics transformation package](https://github.com/fivetran/dbt_qualtrics).
+
+> This package does not apply freshness tests to source data due to the variability of survey cadences.
 <!--section-end-->
 
 # 🎯 How do I use the dbt package?
@@ -78,27 +79,26 @@ This package includes all source columns defined in the macros folder. You can a
 # dbt_project.yml
 
 vars:
-  qualtrics_source:
-    survey_pass_through_columns:
-      - name: "that_field"
-        alias: "renamed_to_this_field"
-        transform_sql: "cast(renamed_to_this_field as string)"
-    directory_pass_through_columns:
-      - name: "this_field"
-    directory_contact_pass_through_columns:
-      - name: "old_name"
-        alias: "new_name"
-    distribution_pass_through_columns:
-      - name: "unique_string_field"
-        transform_sql: "cast(unique_string_field as string)"
-    core_contact_pass_through_columns: # relevant only if you have `core_*` tables enabled
-      - name: "pass_this_through"
+  qualtrics__survey_pass_through_columns:
+    - name: "that_field"
+      alias: "renamed_to_this_field"
+      transform_sql: "cast(renamed_to_this_field as string)"
+  qualtrics__directory_pass_through_columns:
+    - name: "this_field"
+  qualtrics__directory_contact_pass_through_columns:
+    - name: "old_name"
+      alias: "new_name"
+  qualtrics__distribution_pass_through_columns:
+    - name: "unique_string_field"
+      transform_sql: "cast(unique_string_field as string)"
+  qualtrics__core_contact_pass_through_columns: # relevant only if you have `core_*` tables enabled
+    - name: "pass_this_through"
 ```
 
 > Please create an [issue](https://github.com/fivetran/dbt_qualtrics_source/issues) if you'd like to see passthrough column support for other tables in the Qualtrics schema.
 
 ### Changing the Build Schema
-By default this package will build the Qualtrics staging models within a schema titled (<target_schema> + `_stg_qualtrics`) in your target database. If this is not where you would like your staging qualtrics data to be written to, add the following configuration to your `dbt_project.yml` file:
+By default this package will build the Qualtrics staging models within a schema titled (<target_schema> + `_qualtrics_source`) in your target database. If this is not where you would like your staging qualtrics data to be written to, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml

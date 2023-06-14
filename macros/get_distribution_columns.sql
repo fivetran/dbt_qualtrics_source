@@ -28,7 +28,7 @@
     {"name": "survey_link_survey_id", "datatype": dbt.type_string()}
 ] %}
 
-{{ fivetran_utils.add_pass_through_columns(columns, var('distribution_pass_through_columns')) }}
+{{ fivetran_utils.add_pass_through_columns(columns, var('qualtrics__distribution_pass_through_columns')) }}
 
 {{ return(columns) }}
 

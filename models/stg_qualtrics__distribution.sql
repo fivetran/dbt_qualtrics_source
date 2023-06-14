@@ -46,7 +46,7 @@ final as (
         _fivetran_deleted as is_deleted,
         _fivetran_synced
 
-        {{ fivetran_utils.fill_pass_through_columns('distribution_pass_through_columns') }}
+        {{ fivetran_utils.fill_pass_through_columns('qualtrics__distribution_pass_through_columns') }}
 
     from fields
 )

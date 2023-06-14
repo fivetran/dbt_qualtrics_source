@@ -5,7 +5,7 @@ require-dbt-version: [">=1.3.0", "<2.0.0"]
 
 models:
   qualtrics_source:
-    # +schema: stg_qualtrics
+    # +schema: qualtrics_source
     +materialized: table
     tmp:
       +materialized: view
@@ -32,8 +32,8 @@ vars:
     core_contact: "{{ source('qualtrics', 'core_contact') }}"
     core_mailing_list: "{{ source('qualtrics', 'core_mailing_list') }}"
 
-    survey_pass_through_columns: []
-    directory_pass_through_columns: []
-    directory_contact_pass_through_columns: []
-    distribution_pass_through_columns: []
-    core_contact_pass_through_columns: []
+  qualtrics__survey_pass_through_columns: []
+  qualtrics__directory_pass_through_columns: []
+  qualtrics__directory_contact_pass_through_columns: []
+  qualtrics__distribution_pass_through_columns: []
+  qualtrics__core_contact_pass_through_columns: []
