@@ -32,6 +32,7 @@ final as (
         first_name,
         last_name,
         lower(email) as email,
+        {{ dbt.split_part('email', "'@'", 2) }} as email_domain,
         external_data_reference,
         language,
         unsubscribed as is_unsubscribed,
