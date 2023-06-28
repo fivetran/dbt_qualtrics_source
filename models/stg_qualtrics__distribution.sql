@@ -14,6 +14,12 @@ fields as (
                 staging_columns=get_distribution_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='qualtrics_union_schemas', 
+            union_database_variable='qualtrics_union_databases') 
+        }}
+            
     from base
 ),
 
@@ -44,7 +50,8 @@ final as (
         survey_link_link_type as survey_link_type,
         survey_link_survey_id as survey_id,
         _fivetran_deleted as is_deleted,
-        _fivetran_synced
+        _fivetran_synced,
+        source_relation
 
         {{ fivetran_utils.fill_pass_through_columns('qualtrics__distribution_pass_through_columns') }}
 

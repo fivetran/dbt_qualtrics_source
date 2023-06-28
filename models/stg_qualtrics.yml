@@ -3,6 +3,11 @@ version: 2
 models:
   - name: stg_qualtrics__user
     description: These are the users in your organizations, not the contacts for whom you are building content like surveys and messages.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - user_id
+            - source_relation
     columns:
       - name: is_deleted
         description: "{{ doc('_fivetran_deleted') }}"
@@ -23,7 +28,6 @@ models:
       - name: user_id
         description: "{{ doc('user_id') }}"
         tests:
-          - unique
           - not_null
       - name: language
         description: "{{ doc('language') }}"
@@ -51,9 +55,16 @@ models:
         description: "{{ doc('user_type') }}"
       - name: username
         description: "{{ doc('username') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__survey
     description: Qualtrics survey.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - survey_id
+            - source_relation
     columns:
       - name: is_deleted
         description: "{{ doc('_fivetran_deleted') }}"
@@ -78,7 +89,6 @@ models:
       - name: survey_id
         description: "{{ doc('survey_id') }}"
         tests:
-          - unique
           - not_null
       - name: last_accessed_at
         description: "{{ doc('last_accessed') }}"
@@ -116,6 +126,7 @@ models:
           combination_of_columns:
             - question_id
             - survey_id
+            - source_relation
     columns:
       - name: is_deleted
         description: "{{ doc('_fivetran_deleted') }}"
@@ -123,9 +134,9 @@ models:
         description: "{{ doc('_fivetran_synced') }}"
       - name: data_export_tag
         description: "{{ doc('data_export_tag') }}"
-      - name: data_visibility_hidden
+      - name: is_data_hidden
         description: "{{ doc('data_visibility_hidden') }}"
-      - name: data_visibility_private
+      - name: is_data_private
         description: "{{ doc('data_visibility_private') }}"
       - name: question_id
         description: "{{ doc('question_id') }}"
@@ -158,11 +169,15 @@ models:
 
   - name: stg_qualtrics__question_response
     description: Responses to individual questions (and their sub-questions).
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - _fivetran_id
+            - source_relation
     columns:
       - name: _fivetran_id
         description: "{{ doc('_fivetran_id') }}"
         tests:
-          - unique
           - not_null
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
@@ -191,6 +206,7 @@ models:
             - question_id
             - survey_id
             - key
+            - source_relation
     columns:
       - name: is_deleted
         description: "{{ doc('_fivetran_deleted') }}"
@@ -209,6 +225,11 @@ models:
 
   - name: stg_qualtrics__survey_response
     description: Individual responses to surveys.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - response_id
+            - source_relation
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
@@ -223,7 +244,6 @@ models:
       - name: response_id
         description: "{{ doc('response_id') }}"
         tests:
-          - unique
           - not_null
       - name: ip_address
         description: "{{ doc('ip_address') }}"
@@ -260,6 +280,7 @@ models:
             - question_id
             - survey_id
             - key
+            - source_relation
     columns:
       - name: is_deleted
         description: "{{ doc('_fivetran_deleted') }}"
@@ -283,6 +304,7 @@ models:
           combination_of_columns:
             - version_id
             - survey_id
+            - source_relation
     columns:
       - name: is_deleted
         description: "{{ doc('_fivetran_deleted') }}"
@@ -314,6 +336,7 @@ models:
             - response_id
             - key
             - value
+            - source_relation
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
@@ -333,6 +356,7 @@ models:
           combination_of_columns:
             - block_id
             - survey_id
+            - source_relation
     columns:
       - name: is_deleted
         description: "{{ doc('_fivetran_deleted') }}"
@@ -361,6 +385,7 @@ models:
             - block_id
             - question_id
             - survey_id
+            - source_relation
     columns:
       - name: is_deleted
         description: "{{ doc('_fivetran_deleted') }}"
@@ -375,6 +400,11 @@ models:
 
   - name: stg_qualtrics__directory
     description: A directory is an address book for the entire brand and contains all of the contacts that have been added by your users.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - directory_id
+            - source_relation
     columns:
       - name: is_deleted
         description: "{{ doc('_fivetran_deleted') }}"
@@ -393,7 +423,6 @@ models:
       - name: directory_id
         description: "{{ doc('directory_id') }}"
         tests:
-          - unique
           - not_null
       - name: is_default
         description: "{{ doc('is_default') }}"
@@ -407,6 +436,7 @@ models:
           combination_of_columns:
             - contact_id
             - directory_id
+            - source_relation
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
@@ -441,6 +471,11 @@ models:
 
   - name: stg_qualtrics__distribution
     description: Use distributions to reach out to contacts in the XM Directory platform, with or without a survey attached.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - distribution_id
+            - source_relation
     columns:
       - name: is_deleted
         description: "{{ doc('_fivetran_deleted') }}"
@@ -459,7 +494,6 @@ models:
       - name: distribution_id
         description: "{{ doc('distribution_id') }}"
         tests:
-          - unique
           - not_null
       - name: message_library_id
         description: "{{ doc('message_library_id') }}"
@@ -503,6 +537,7 @@ models:
           combination_of_columns:
             - contact_id
             - distribution_id
+            - source_relation
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
@@ -538,6 +573,7 @@ models:
           combination_of_columns:
             - mailing_list_id
             - directory_id
+            - source_relation
     columns:
       - name: is_deleted
         description: "{{ doc('_fivetran_deleted') }}"
@@ -558,6 +594,11 @@ models:
 
   - name: stg_qualtrics__contact_mailing_list_membership
     description: Table relating contacts to mailing lists they are a part of.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - contact_lookup_id
+            - source_relation
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
@@ -566,7 +607,6 @@ models:
       - name: contact_lookup_id
         description: "{{ doc('contact_lookup_id') }}"
         tests:
-          - unique
           - not_null
       - name: directory_id
         description: "{{ doc('directory_id') }}"
@@ -588,6 +628,7 @@ models:
           combination_of_columns:
             - mailing_list_contact_id
             - mailing_list_id
+            - source_relation
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
@@ -612,6 +653,11 @@ models:
 
   - name: stg_qualtrics__core_mailing_list
     description: Research Core mailing list (non xm-directory).
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - mailing_list_id
+            - source_relation
     columns:
       - name: is_deleted
         description: "{{ doc('_fivetran_deleted') }}"
@@ -620,7 +666,6 @@ models:
       - name: mailing_list_id
         description: "{{ doc('mailing_list_id') }}"
         tests:
-          - unique
           - not_null
       - name: library_id
         description: "{{ doc('library_id') }}"

@@ -532,7 +532,7 @@ sources:
         identifier: "{{ var('qualtrics_core_contact_identifier', 'core_contact') }}"
         description: Research Core contacts (non-XM directory).
         config:
-          enabled: "{{ var('qualtrics__using_core_contacts', false) }}"
+          enabled: "{{ var('qualtrics__using_core_contacts', true) }}"
         columns:
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
@@ -559,7 +559,7 @@ sources:
         identifier: "{{ var('qualtrics_core_mailing_list_identifier', 'core_mailing_list') }}"
         description: Research Core mailing list (non xm-directory).
         config:
-          enabled: "{{ var('qualtrics__using_core_mailing_lists', false) }}"
+          enabled: "{{ var('qualtrics__using_core_mailing_lists', true) }}"
         columns:
           - name: _fivetran_deleted
             description: "{{ doc('_fivetran_deleted') }}"

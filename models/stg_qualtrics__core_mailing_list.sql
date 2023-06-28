@@ -1,4 +1,4 @@
-{{ config(enabled=var('qualtrics__using_core_mailing_lists', false)) }}
+{{ config(enabled=var('qualtrics__using_core_mailing_lists', true)) }}
 
 with base as (
 
@@ -15,6 +15,12 @@ fields as (
                 staging_columns=get_core_mailing_list_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='qualtrics_union_schemas', 
+            union_database_variable='qualtrics_union_databases') 
+        }}
+        
     from base
 ),
 
@@ -27,7 +33,8 @@ final as (
         category,
         folder,
         _fivetran_deleted as is_deleted,
-        _fivetran_synced
+        _fivetran_synced,
+        source_relation
 
     from fields
 )

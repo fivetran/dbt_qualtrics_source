@@ -14,6 +14,12 @@ fields as (
                 staging_columns=get_block_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='qualtrics_union_schemas', 
+            union_database_variable='qualtrics_union_databases') 
+        }}
+
     from base
 ),
 
@@ -28,7 +34,8 @@ final as (
         survey_id,
         type,
         _fivetran_deleted as is_deleted,
-        _fivetran_synced
+        _fivetran_synced,
+        source_relation
 
     from fields
 )

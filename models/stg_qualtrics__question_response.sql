@@ -14,6 +14,12 @@ fields as (
                 staging_columns=get_question_response_columns()
             )
         }}
+        
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='qualtrics_union_schemas', 
+            union_database_variable='qualtrics_union_databases') 
+        }}
+            
     from base
 ),
 
@@ -29,7 +35,9 @@ final as (
         sub_question_key,
         sub_question_text,
         value,
-        _fivetran_synced
+        _fivetran_synced,
+        source_relation
+        
     from fields
 )
 

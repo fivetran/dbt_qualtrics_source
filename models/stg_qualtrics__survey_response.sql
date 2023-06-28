@@ -14,6 +14,12 @@ fields as (
                 staging_columns=get_survey_response_columns()
             )
         }}
+
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='qualtrics_union_schemas', 
+            union_database_variable='qualtrics_union_databases') 
+        }}
+            
     from base
 ),
 
@@ -30,7 +36,7 @@ final as (
         location_latitude,
         location_longitude,
         progress,
-        recipient_email,
+        lower(recipient_email) as recipient_email,
         recipient_first_name,
         recipient_last_name,
         recorded_date,
@@ -38,7 +44,9 @@ final as (
         status,
         survey_id,
         user_language,
-        _fivetran_synced
+        _fivetran_synced,
+        source_relation
+        
     from fields
 )
 

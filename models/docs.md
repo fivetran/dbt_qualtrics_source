@@ -2,6 +2,10 @@
 The time when a record was last updated by Fivetran.
 {% enddocs %}
 
+{% docs source_relation %}
+The schema or database this record came from if you are making use of the qualtrics_union_schemas or qualtrics_union_databases variables, respectively. Empty string if you are not using either of these variables to union together multiple Qualtrics connectors.
+{% enddocs %}
+
 {% docs _fivetran_deleted %}
 Boolean representing whether the record was soft-deleted in Qualtrics.
 {% enddocs %}
