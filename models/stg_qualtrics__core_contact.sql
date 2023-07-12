@@ -27,7 +27,7 @@ fields as (
 final as (
     
     select 
-        id as mailing_list_contact_id,
+        id as contact_id,
         mailing_list_id,
         first_name,
         last_name,

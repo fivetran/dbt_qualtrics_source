@@ -52,12 +52,24 @@ packages:
 ```
 
 ## Step 3: Define database and schema variables
-By default, this package runs using your destination and the `qualtrics` schema. If this is not where your Qualtrics data is (for example, if your Qualtrics schema is named `qualtrics_fivetran` and your `issue` table is named `usa_issue`), add the following configuration to your root `dbt_project.yml` file:
+### Single connector
+By default, this package runs using your destination and the `qualtrics` schema. If this is not where your Qualtrics data is (for example, if your Shopify schema is named `qualtrics_fivetran` and your `issue` table is named `usa_issue`), add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 vars:
-    qualtrics_database: your_destination_name
-    qualtrics_schema: your_schema_name 
+    shopify_database: your_destination_name
+    shopify_schema: your_schema_name 
+```
+
+### Union multiple connectors
+If you have multiple Shopify connectors in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table into the transformations. You will be able to see which source it came from in the `source_relation` column of each model. To use this functionality, you will need to set either the `shopify_union_schemas` OR `shopify_union_databases` variables (cannot do both) in your root `dbt_project.yml` file:
+
+```yml
+# dbt_project.yml
+
+vars:
+    shopify_union_schemas: ['shopify_usa','shopify_canada'] # use this if the data is in different schemas/datasets of the same database/project
+    shopify_union_databases: ['shopify_usa','shopify_canada'] # use this if the data is in different databases/projects but uses the same schema name
 ```
 
 ## Step 4: Enable Research Core Contacts API

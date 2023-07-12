@@ -626,13 +626,13 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - mailing_list_contact_id
+            - contact_id
             - mailing_list_id
             - source_relation
     columns:
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
-      - name: mailing_list_contact_id
+      - name: contact_id
         description: "{{ doc('mailing_list_contact_id') }}"
       - name: mailing_list_id
         description: "{{ doc('mailing_list_id') }}"
