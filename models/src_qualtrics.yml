@@ -200,7 +200,9 @@ sources:
 
       - name: survey_response
         identifier: "{{ var('qualtrics_survey_response_identifier', 'survey_response') }}"
-        description: Individual responses to surveys.
+        description: >
+          Individual responses to surveys. A response becomes "recorded" when a respondent submits a survey, 
+          a survey is manually closed from the Responses in Progress page, or a survey session expires.
         columns:
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"

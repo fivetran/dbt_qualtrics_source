@@ -35,7 +35,7 @@ final as (
         ext_ref,
         first_name,
         last_name,
-        phone,
+        REGEXP_REPLACE(phone, '[^0-9]', '') AS phone, -- remove any non-numeric chars
         id as contact_id,
         language,
         last_modified as last_modified_at,

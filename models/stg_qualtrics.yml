@@ -224,7 +224,9 @@ models:
         description: "{{ doc('question_option_text') }}"
 
   - name: stg_qualtrics__survey_response
-    description: Individual responses to surveys.
+    description: >
+      Individual responses to surveys. A response becomes "recorded" when a respondent submits a survey, 
+      a survey is manually closed from the Responses in Progress page, or a survey session expires.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
