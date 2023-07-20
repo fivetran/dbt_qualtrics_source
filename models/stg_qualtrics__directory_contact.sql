@@ -39,7 +39,6 @@ final as (
         id as contact_id,
         language,
         last_modified as last_modified_at,
-        write_blanks as can_write_blanks,
         _fivetran_synced,
         source_relation
 

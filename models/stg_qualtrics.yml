@@ -468,8 +468,6 @@ models:
         description: "{{ doc('contact_last_name') }}"
       - name: phone
         description: "{{ doc('phone') }}"
-      - name: can_write_blanks
-        description: "{{ doc('write_blanks') }}"
 
   - name: stg_qualtrics__distribution
     description: Use distributions to reach out to contacts in the XM Directory platform, with or without a survey attached.

@@ -14,8 +14,7 @@
     {"name": "language", "datatype": dbt.type_string()},
     {"name": "last_modified", "datatype": dbt.type_timestamp()},
     {"name": "last_name", "datatype": dbt.type_string()},
-    {"name": "phone", "datatype": dbt.type_string()},
-    {"name": "write_blanks", "datatype": "boolean"}
+    {"name": "phone", "datatype": dbt.type_string()}
 ] %}
 
 {{ fivetran_utils.add_pass_through_columns(columns, var('qualtrics__directory_contact_pass_through_columns')) }}
