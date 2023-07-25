@@ -1,4 +1,4 @@
-{{ config(enabled=var('qualtrics__using_core_contacts', true)) }}
+{{ config(enabled=var('qualtrics__using_core_contacts', false)) }}
 
 with base as (
 

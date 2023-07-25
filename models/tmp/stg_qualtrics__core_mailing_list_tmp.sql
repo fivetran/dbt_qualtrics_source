@@ -1,4 +1,4 @@
-{{ config(enabled=var('qualtrics__using_core_mailing_lists', true)) }}
+{{ config(enabled=var('qualtrics__using_core_mailing_lists', false)) }}
 -- can disable
 {{
     fivetran_utils.union_data(

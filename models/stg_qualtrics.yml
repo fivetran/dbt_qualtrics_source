@@ -684,6 +684,8 @@ models:
         description: "{{ doc('_fivetran_deleted') }}"
       - name: source_relation
         description: "{{ doc('source_relation') }}"
+      - name: email_domain
+        description: "{{ doc('email_domain') }}"
 
   - name: stg_qualtrics__core_mailing_list
     description: Research Core mailing list (non xm-directory).
