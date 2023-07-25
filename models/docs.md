@@ -336,8 +336,8 @@ The type of response from forcing respondents to answer a question or request th
 The type of forced response validation that is set.
 {% enddocs %}
 
-{% docs _fivetran_id %}
-Fivetran-generated unique key hashed. find out on what?
+{% docs question_response_fivetran_id %}
+Fivetran-generated unique key hashed on `response_id`, `question_id`, `sub_question_key`, `sub_question_text` , `question_option_key` , `loop_id` and `importId`.
 {% enddocs%}
 
 {% docs loop_id %}

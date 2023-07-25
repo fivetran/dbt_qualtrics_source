@@ -118,6 +118,8 @@ models:
         description: "{{ doc('survey_name') }}"
       - name: survey_status
         description: "{{ doc('survey_status') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__question
     description: Questions within a survey.
@@ -166,6 +168,8 @@ models:
         description: "{{ doc('validation_setting_force_response_type') }}"
       - name: validation_setting_type
         description: "{{ doc('validation_setting_type') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__question_response
     description: Responses to individual questions (and their sub-questions).
@@ -176,7 +180,7 @@ models:
             - source_relation
     columns:
       - name: _fivetran_id
-        description: "{{ doc('_fivetran_id') }}"
+        description: "{{ doc('question_response_fivetran_id') }}"
         tests:
           - not_null
       - name: _fivetran_synced
@@ -197,6 +201,8 @@ models:
         description: "{{ doc('sub_question_text') }}"
       - name: value
         description: "{{ doc('response_value') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__question_option
     description: Choice options for survey questions.
@@ -222,7 +228,9 @@ models:
         description: "{{ doc('survey_id') }}"
       - name: text
         description: "{{ doc('question_option_text') }}"
-
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+        
   - name: stg_qualtrics__survey_response
     description: >
       Individual responses to surveys. A response becomes "recorded" when a respondent submits a survey, 
@@ -273,6 +281,8 @@ models:
         description: "{{ doc('survey_id') }}"
       - name: user_language
         description: "{{ doc('user_language') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__sub_question
     description: Sub-questions of questions.
@@ -298,6 +308,8 @@ models:
         description: "{{ doc('survey_id') }}"
       - name: text
         description: "{{ doc('sub_question_text') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__survey_version
     description: Published and un-published versions of surveys.
@@ -328,6 +340,8 @@ models:
         description: "{{ doc('version_number') }}"
       - name: was_published
         description: "{{ doc('was_published') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__survey_embedded_data
     description: Any extra information you would like recorded in addition to the question responses.
@@ -350,6 +364,8 @@ models:
         description: "{{ doc('response_id') }}"
       - name: value
         description: "{{ doc('value') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__block
     description: Groups of questions, used to organize longer surveys and conditionally display sets of questions.
@@ -378,6 +394,8 @@ models:
         description: "{{ doc('survey_id') }}"
       - name: type
         description: "{{ doc('block_type') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__block_question
     description: Table relating questions and blocks together.
@@ -399,6 +417,8 @@ models:
         description: "{{ doc('question_id') }}"
       - name: survey_id
         description: "{{ doc('survey_id') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__directory
     description: A directory is an address book for the entire brand and contains all of the contacts that have been added by your users.
@@ -430,6 +450,8 @@ models:
         description: "{{ doc('is_default') }}"
       - name: name
         description: "{{ doc('directory_name') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__directory_contact
     description: Tablle relating contacts to the directories they are a part of.
@@ -468,6 +490,8 @@ models:
         description: "{{ doc('contact_last_name') }}"
       - name: phone
         description: "{{ doc('phone') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__distribution
     description: Use distributions to reach out to contacts in the XM Directory platform, with or without a survey attached.
@@ -529,6 +553,8 @@ models:
         description: "{{ doc('survey_link_link_type') }}"
       - name: survey_id
         description: "{{ doc('survey_link_survey_id') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__distribution_contact
     description: Table relating contacts to distributions they've been a part of.
@@ -565,6 +591,8 @@ models:
         description: "{{ doc('survey_link') }}"
       - name: survey_session_id
         description: "{{ doc('survey_session_id') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__directory_mailing_list
     description: Mailing lists are lists of contacts that can receive emails and survey invitations. You can create mailing lists either through file upload or manually.
@@ -591,6 +619,8 @@ models:
         description: "{{ doc('mailing_list_name') }}"
       - name: owner_user_id
         description: "{{ doc('owner_id') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__contact_mailing_list_membership
     description: Table relating contacts to mailing lists they are a part of.
@@ -620,6 +650,8 @@ models:
         description: "{{ doc('mailing_list_unsubscribe_date') }}"
       - name: is_unsubscribed
         description: "{{ doc('mailing_list_unsubscribed') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__core_contact
     description: Research Core contacts (non-XM directory).
@@ -650,6 +682,8 @@ models:
         description: "{{ doc('unsubscribed') }}"
       - name: is_deleted
         description: "{{ doc('_fivetran_deleted') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_qualtrics__core_mailing_list
     description: Research Core mailing list (non xm-directory).
@@ -675,3 +709,5 @@ models:
         description: "{{ doc('mailing_list_category') }}"
       - name: folder
         description: "{{ doc('folder') }}"
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"

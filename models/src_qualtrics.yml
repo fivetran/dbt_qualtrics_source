@@ -159,7 +159,7 @@ sources:
         description: Responses to individual questions (and their sub-questions).
         columns:
           - name: _fivetran_id
-            description: "{{ doc('_fivetran_id') }}"
+            description: "{{ doc('question_response_fivetran_id') }}"
           - name: _fivetran_synced
             description: "{{ doc('_fivetran_synced') }}"
           - name: loop_id
