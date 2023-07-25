@@ -11,7 +11,7 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 
 seeds:
-  qualtrics_integration_tests:
+  qualtrics_source_integration_tests:
     +column_types:
       _fivetran_synced: timestamp
     directory_contact:
