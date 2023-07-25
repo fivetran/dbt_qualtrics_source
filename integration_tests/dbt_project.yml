@@ -9,3 +9,11 @@ vars:
 dispatch:
   - macro_namespace: dbt_utils
     search_order: ['spark_utils', 'dbt_utils']
+
+seeds:
+  qualtrics_integration_tests:
+    +column_types:
+      _fivetran_synced: timestamp
+    directory_contact:
+      +column_types:
+        phone: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
