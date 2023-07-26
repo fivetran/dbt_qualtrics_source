@@ -50,12 +50,12 @@ packages:
 
 ## Step 3: Define database and schema variables
 ### Single connector
-By default, this package runs using your destination and the `qualtrics` schema. If this is not where your Qualtrics data is (for example, if your Shopify schema is named `qualtrics_fivetran` and your `issue` table is named `usa_issue`), add the following configuration to your root `dbt_project.yml` file:
+By default, this package runs using your destination and the `qualtrics` schema. If this is not where your Qualtrics data is (for example, if your Qualtrics schema is named `qualtrics_fivetran` and your `issue` table is named `usa_issue`), add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 vars:
-    shopify_database: your_destination_name
-    shopify_schema: your_schema_name 
+    qualtrics_database: your_destination_name
+    qualtrics_schema: your_schema_name 
 ```
 
 ### Union multiple connectors
