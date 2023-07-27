@@ -595,7 +595,7 @@ The unique ID of the parent distribution.
 {% enddocs %}
 
 {% docs recipient_contact_id %}
-The contact ID of the recipient. Can point to `directory_contact` or `core_contact` (not included in package).
+The contact ID of the recipient. Can point to `directory_contact` or `core_contact`.
 {% enddocs %}
 
 {% docs recipient_library_id %}
@@ -603,7 +603,7 @@ Library ID of the message.
 {% enddocs %}
 
 {% docs recipient_mailing_list_id %}
-The mailing list or contact group associated with the distribution(s). Can point to `directory_mailing_list` or `core_mailing_list` (not included in package).
+The mailing list or contact group associated with the distribution(s). Can point to `directory_mailing_list` or `core_mailing_list`.
 {% enddocs %}
 
 {% docs recipient_sample_id %}
