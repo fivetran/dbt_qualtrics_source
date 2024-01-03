@@ -7,7 +7,12 @@ vars:
   qualtrics_schema: qualtrics_source_integration_tests
   qualtrics__using_core_contacts: true
   qualtrics__using_core_mailing_lists: true
-  
+
+models:
+  +persist_docs:
+    relation: true
+    columns: true
+
 dispatch:
   - macro_namespace: dbt_utils
     search_order: ['spark_utils', 'dbt_utils']
