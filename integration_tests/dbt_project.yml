@@ -11,7 +11,7 @@ vars:
 models:
   +persist_docs:
     relation: true
-    columns: "{{ false if target.type in ['spark','databricks'] else false }}"
+    columns: "{{ false if target.type in ['spark','databricks'] else true }}"
 
 dispatch:
   - macro_namespace: dbt_utils
