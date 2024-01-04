@@ -663,23 +663,23 @@ The time a survey was sent to the respondent.
 {% enddocs %}
 
 {% docs distribution_status %}
-One of:
-- `Pending` - The distribution is scheduled but has yet to be sent.
-- `Success` - The distribution was successfully delivered to the contact.
-- `Error` - An error occurred while attempting to send the distribution.
-- `Opened` - The distribution was opened by the contact.
-- `Complaint` - The contact complained that the distribution was spam.
-- `Skipped` - The contact was skipped due to contact frequency rules or blacklisted contact information.
-- `Blocked` - The distribution failed to send, because the contact blocked it or the email was caught by the spam circuit breaker.
-- `Failure` - The distribution failed to be delivered.
-- `Unknown` - The distribution failed for an unknown reason.
-- `SoftBounce` - The distribution bounced but can be retried.
-- `HardBounce` - The distribution bounced and should not be retried.
-- `SurveyStarted` - The contact started the survey distributed.
-- `SurveyPartiallyFinished` - The contact submitted a partially completed survey response.
-- `SurveyFinished` - The contact submitted a completed survey response.
-- `SurveyScreenedOut` - The contact screened out while taking the survey.
-- `SessionExpired` - The contact's survey session has expired.
+One of ([full descriptions](https://api.qualtrics.com/fc8017650d0b9-distribution-status)):
+- `Pending`
+- `Success`
+- `Error`
+- `Opened`
+- `Complaint`
+- `Skipped`
+- `Blocked`
+- `Failure`
+- `Unknown`
+- `SoftBounce`
+- `HardBounce`
+- `SurveyStarted`
+- `SurveyPartiallyFinished`
+- `SurveyFinished`
+- `SurveyScreenedOut`
+- `SessionExpired`
 {% enddocs %}
 
 {% docs survey_link %}

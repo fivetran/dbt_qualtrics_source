@@ -1,3 +1,8 @@
+# dbt_qualtrics_source v0.1.1
+[PR #4](https://github.com/fivetran/dbt_qualtrics_source/pull/4) includes the following update:
+## Bug fix
+- Shortened the documentation description for field `distribution_status`, so no character limit error occurs when persisting docs.
+
 # dbt_qualtrics_source v0.1.0
 This is the initial release of the Qualtrics dbt source package!
 
