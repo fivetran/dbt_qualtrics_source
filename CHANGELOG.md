@@ -1,5 +1,7 @@
 # v0.2.0 dbt_qualtrics_source
 
+[PR #5](https://github.com/fivetran/dbt_qualtrics_source/pull/5) includes the following updates:
+
 ## 🚨 Breaking Changes: Bug Fixes 🚨
 - Casted the following timestamp fields in the below models using the `dbt.type_timestamp()` macro. This is necessary to ensure all timestamps are consistently casted and do not experience datatype mismatches in downstream transformations.
     - stg_qualtrics__directory_contact
