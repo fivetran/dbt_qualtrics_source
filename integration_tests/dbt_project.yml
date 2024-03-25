@@ -4,7 +4,14 @@ profile: 'integration_tests'
 config-version: 2
 
 vars:
-  qualtrics_schema: qualtrics_source_integration_tests
+  qualtrics_schema: qualtrics_source_integration_tests_02
+  qualtrics__using_core_contacts: true
+  qualtrics__using_core_mailing_lists: true
+
+models:
+  +persist_docs:
+    relation: true
+    columns: "{{ false if target.type in ['spark','databricks'] else true }}"
 
 dispatch:
   - macro_namespace: dbt_utils
