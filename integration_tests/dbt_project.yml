@@ -30,6 +30,7 @@ seeds:
       last_login_date: timestamp
       password_expiration_date: timestamp
       password_last_changed_date: timestamp
+      unsubscribe_date: timestamp
     directory_contact:
       +column_types:
         phone: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
