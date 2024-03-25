@@ -39,7 +39,7 @@ final as (
         lower(recipient_email) as recipient_email,
         recipient_first_name,
         recipient_last_name,
-        recorded_date,
+        cast(recorded_date as {{ dbt.type_timestamp() }}) as recorded_date,
         cast(start_date as {{ dbt.type_timestamp() }}) as started_at,
         status,
         survey_id,

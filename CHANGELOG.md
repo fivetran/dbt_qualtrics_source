@@ -4,6 +4,8 @@
 
 ## 🚨 Breaking Changes: Bug Fixes 🚨
 - Casted the following timestamp fields in the below models using the `dbt.type_timestamp()` macro. This is necessary to ensure all timestamps are consistently casted and do not experience datatype mismatches in downstream transformations.
+    - stg_qualtrics__contact_mailing_list_membership
+        - unsubscribed_at
     - stg_qualtrics__directory_contact
         - created_at
         - unsubscribed_from_directory_at
@@ -25,6 +27,7 @@
         - finished_at
         - is_finished
         - last_modified_at
+        - recorded_date
         - started_at
     - stg_qualtrics__survey_version
         - created_at
