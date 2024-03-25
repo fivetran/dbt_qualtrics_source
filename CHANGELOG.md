@@ -48,8 +48,6 @@
 - Updated the maintainer PR template to resemble the most up to date format.
 - Added the auto release GitHub Action for easier deployment.
 
-# v0.1.0 dbt_qualtrics_source
-Initial release!
 # dbt_qualtrics_source v0.1.1
 [PR #4](https://github.com/fivetran/dbt_qualtrics_source/pull/4) includes the following update:
 ## Bug fix
