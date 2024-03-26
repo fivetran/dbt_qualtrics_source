@@ -26,9 +26,9 @@ fields as (
 final as (
     
     select 
-        creation_date as created_at,
+        cast(creation_date as {{ dbt.type_timestamp() }}) as created_at,
         directory_id,
-        directory_unsubscribe_date as unsubscribed_from_directory_at,
+        cast(directory_unsubscribe_date as {{ dbt.type_timestamp() }}) as unsubscribed_from_directory_at,
         directory_unsubscribed as is_unsubscribed_from_directory,
         lower(email) as email,
         lower(email_domain) as email_domain,
@@ -38,7 +38,7 @@ final as (
         REGEXP_REPLACE(phone, '[^0-9]', '') AS phone, -- remove any non-numeric chars
         id as contact_id,
         language,
-        last_modified as last_modified_at,
+        cast(last_modified as {{ dbt.type_timestamp() }}) as last_modified_at,
         _fivetran_synced,
         source_relation
 
