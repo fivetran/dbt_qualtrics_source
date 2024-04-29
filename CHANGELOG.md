@@ -7,7 +7,7 @@
     - This is necessary for warehouses that do not support the straight cast.
 
 ## Under the Hood
-- Updated the seed `survey_response_data` to test both possible values for `finished`.
+- Updated the integration tests seed `survey_response` to test both possible values for `finished`.
 
 # v0.2.0 dbt_qualtrics_source
 
