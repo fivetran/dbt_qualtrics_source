@@ -1,3 +1,14 @@
+# v0.2.1 dbt_qualtrics_source
+
+[PR #6](https://github.com/fivetran/dbt_qualtrics_source/pull/6) includes the following updates: 
+
+## Bug Fix
+- Updated model `stg_qualtrics__survey_response` to use a case statement to determine the `is_finished` boolean value instead of a straight cast to boolean. 
+    - This is necessary for warehouses that do not support the straight cast.
+
+## Under the Hood
+- Updated the seed `survey_response_data` to test both possible values for `finished`.
+
 # v0.2.0 dbt_qualtrics_source
 
 [PR #5](https://github.com/fivetran/dbt_qualtrics_source/pull/5) includes the following updates: 
