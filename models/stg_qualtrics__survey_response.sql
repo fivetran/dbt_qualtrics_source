@@ -29,7 +29,7 @@ final as (
         distribution_channel,
         duration_in_seconds,
         cast(end_date as {{ dbt.type_timestamp() }}) as finished_at,
-        cast(finished as {{ dbt.type_boolean() }}) as is_finished,
+        cast(case when finished = 0 then false else true end as {{ dbt.type_boolean() }}) as is_finished,
         id as response_id,
         ip_address,
         cast(last_modified_date as {{ dbt.type_timestamp() }}) as last_modified_at,
