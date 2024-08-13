@@ -562,6 +562,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - contact_id
+            - contact_lookup_id
             - distribution_id
             - source_relation
     columns:
