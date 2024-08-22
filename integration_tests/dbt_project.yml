@@ -1,5 +1,5 @@
 name: 'qualtrics_source_integration_tests'
-version: '0.1.1'
+version: '0.2.1'
 profile: 'integration_tests'
 config-version: 2
 
@@ -21,6 +21,16 @@ seeds:
   qualtrics_source_integration_tests:
     +column_types:
       _fivetran_synced: timestamp
+      directory_unsubscribe_date: timestamp
+      response_completed_at: timestamp
+      last_accessed: timestamp
+      account_creation_date: timestamp
+      response_started_at: timestamp
+      account_expiration_date: timestamp
+      last_login_date: timestamp
+      password_expiration_date: timestamp
+      password_last_changed_date: timestamp
+      unsubscribe_date: timestamp
     directory_contact:
       +column_types:
         phone: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"

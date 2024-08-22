@@ -26,7 +26,7 @@ fields as (
 final as (
     
     select 
-        created_date as created_at,
+        cast(created_date as {{ dbt.type_timestamp() }}) as created_at,
         header_from_email,
         header_from_name,
         header_reply_to_email,
@@ -35,7 +35,7 @@ final as (
         message_library_id,
         message_message_id as message_id,
         message_message_text as message_text,
-        modified_date as last_modified_at,
+        cast(modified_date as {{ dbt.type_timestamp() }}) as last_modified_at,
         organization_id,
         owner_id as owner_user_id,
         parent_distribution_id,
@@ -45,8 +45,8 @@ final as (
         recipient_sample_id,
         request_status,
         request_type,
-        send_date as send_at,
-        survey_link_expiration_date as survey_link_expires_at,
+        cast(send_date as {{ dbt.type_timestamp() }}) as send_at,
+        cast(survey_link_expiration_date as {{ dbt.type_timestamp() }}) as survey_link_expires_at,
         survey_link_link_type as survey_link_type,
         survey_link_survey_id as survey_id,
         _fivetran_deleted as is_deleted,

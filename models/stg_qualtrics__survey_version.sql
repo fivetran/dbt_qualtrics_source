@@ -26,7 +26,7 @@ fields as (
 final as (
     
     select 
-        creation_date as created_at,
+        cast(creation_date as {{ dbt.type_timestamp() }}) as created_at,
         description as version_description,
         id as version_id,
         published as is_published,

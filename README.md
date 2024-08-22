@@ -45,7 +45,7 @@ If you  are **not** using the [Qualtrics transformation package](https://github.
 ```yml
 packages:
   - package: fivetran/qualtrics_source
-    version: [">=0.1.0", "<0.2.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.2.0", "<0.3.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 ## Step 3: Define database and schema variables

@@ -46,9 +46,9 @@ final as (
         scoring_summary_after_questions,
         scoring_summary_after_survey,
         scoring_summary_category,
-        last_accessed as last_accessed_at,
-        last_activated as last_activated_at,
-        last_modified as last_modified_at,
+        cast(last_accessed as {{ dbt.type_timestamp() }}) as last_accessed_at,
+        cast(last_activated as {{ dbt.type_timestamp() }}) as last_activated_at,
+        cast(last_modified as {{ dbt.type_timestamp() }}) as last_modified_at,
         _fivetran_deleted as is_deleted,
         _fivetran_synced,
         source_relation

@@ -32,7 +32,7 @@ final as (
         mailing_list_id,
         name,
         owner_id as owner_user_id,
-        unsubscribe_date as unsubscribed_at,
+        cast(unsubscribe_date as {{ dbt.type_timestamp() }}) as unsubscribed_at,
         unsubscribed as is_unsubscribed,
         _fivetran_synced,
         source_relation
