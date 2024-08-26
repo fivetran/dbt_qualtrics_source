@@ -5,3 +5,4 @@ logs/
 env/
 package-lock.yml
 dbt_packages/
+.DS_Store

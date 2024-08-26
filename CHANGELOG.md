@@ -1,4 +1,13 @@
-# v0.2.1 dbt_qualtrics_source
+# dbt_qualtrics_source v0.2.2
+[PR #9](https://github.com/fivetran/dbt_qualtrics_source/pull/9) includes the following updates: 
+
+## Bug Fix
+- Updated unique combination of columns test on `stg_qualtrics__distribution_contact` to include `contact_lookup_id`. [This is due to a connector update](https://fivetran.com/docs/connectors/applications/qualtrics/changelog#january2024) that changes the primary composite key of the `distribution_contact` source table to include `contact_lookup_id`. ([PR #8](https://github.com/fivetran/dbt_qualtrics_source/pull/8))
+
+## Contributors
+- [@dmcmtntp](https://github.com/dmcmtntp) ([PR #8](https://github.com/fivetran/dbt_qualtrics_source/pull/8))
+
+# dbt_qualtrics_source v0.2.1
 
 [PR #6](https://github.com/fivetran/dbt_qualtrics_source/pull/6) includes the following updates: 
 
@@ -9,7 +18,7 @@
 ## Under the Hood
 - Updated the integration tests seed `survey_response` to test both possible values for `finished`.
 
-# v0.2.0 dbt_qualtrics_source
+# dbt_qualtrics_source v0.2.0
 
 [PR #5](https://github.com/fivetran/dbt_qualtrics_source/pull/5) includes the following updates: 
 
