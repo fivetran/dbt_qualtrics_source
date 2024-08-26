@@ -2,7 +2,8 @@
 [PR #8](https://github.com/fivetran/dbt_qualtrics_source/pull/8) includes the following updates: 
 
 ## Bug Fix
-- Updated unique columns test on `stg_qualtrics__distribution_contact` to include `contact_lookup_id`. 
+- Updated unique combination of columns test on `stg_qualtrics__distribution_contact` to include `contact_lookup_id`.
+
 
 # v0.2.1 dbt_qualtrics_source
 
