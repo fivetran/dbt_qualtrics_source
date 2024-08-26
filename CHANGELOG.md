@@ -2,7 +2,7 @@
 [PR #9](https://github.com/fivetran/dbt_qualtrics_source/pull/9) includes the following updates: 
 
 ## Bug Fix
-- Updated unique combination of columns test on `stg_qualtrics__distribution_contact` to include `contact_lookup_id`. [This is due to a connector update](https://fivetran.com/docs/connectors/applications/qualtrics/changelog#january2024) that changes the primary composite key of the `distribution_contact` source table to include `contact_lookup_id`. [PR #8](https://github.com/fivetran/dbt_qualtrics_source/pull/8)
+- Updated unique combination of columns test on `stg_qualtrics__distribution_contact` to include `contact_lookup_id`. [This is due to a connector update](https://fivetran.com/docs/connectors/applications/qualtrics/changelog#january2024) that changes the primary composite key of the `distribution_contact` source table to include `contact_lookup_id`. ([PR #8](https://github.com/fivetran/dbt_qualtrics_source/pull/8))
 
 ## Contributors
 - [@dmcmtntp](https://github.com/dmcmtntp) ([PR #8](https://github.com/fivetran/dbt_qualtrics_source/pull/8))
