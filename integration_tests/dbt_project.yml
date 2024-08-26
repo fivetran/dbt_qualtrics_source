@@ -4,7 +4,7 @@ profile: 'integration_tests'
 config-version: 2
 
 vars:
-  qualtrics_schema: qualtrics_source_integration_tests_02
+  qualtrics_schema: qualtrics_source_integration_tests_03
   qualtrics__using_core_contacts: true
   qualtrics__using_core_mailing_lists: true
 
