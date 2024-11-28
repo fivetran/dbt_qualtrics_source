@@ -43,7 +43,7 @@ final as (
         response_count_deleted,
         response_count_generated,
         time_zone,
-        unsubscribed as is_unsubscribed,
+        cast(unsubscribed as boolean) as is_unsubscribed,
         user_type,
         username,
         _fivetran_deleted as is_deleted,
