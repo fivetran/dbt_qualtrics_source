@@ -29,7 +29,7 @@ final as (
         cast(creation_date as {{ dbt.type_timestamp() }}) as created_at,
         directory_id,
         cast(directory_unsubscribe_date as {{ dbt.type_timestamp() }}) as unsubscribed_from_directory_at,
-        directory_unsubscribed as is_unsubscribed_from_directory,
+        cast(directory_unsubscribed as boolean) as is_unsubscribed_from_directory,
         lower(email) as email,
         lower(email_domain) as email_domain,
         ext_ref,
