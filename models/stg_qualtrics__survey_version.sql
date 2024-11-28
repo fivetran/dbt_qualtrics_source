@@ -33,7 +33,7 @@ final as (
         survey_id,
         user_id as publisher_user_id,
         version_number,
-        cast(was_published as boolean),
+        cast(was_published as boolean) as was_published,
         cast(_fivetran_deleted as boolean) as is_deleted,
         _fivetran_synced,
         source_relation
