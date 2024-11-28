@@ -34,7 +34,7 @@ final as (
         user_id as publisher_user_id,
         version_number,
         was_published,
-        _fivetran_deleted as is_deleted,
+        cast(_fivetran_deleted as boolean) as is_deleted,
         _fivetran_synced,
         source_relation
         

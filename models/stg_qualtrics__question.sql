@@ -43,7 +43,7 @@ final as (
         validation_setting_force_response,
         validation_setting_force_response_type,
         validation_setting_type,
-        _fivetran_deleted as is_deleted,
+        cast(_fivetran_deleted as boolean) as is_deleted,
         _fivetran_synced,
         source_relation
     from fields

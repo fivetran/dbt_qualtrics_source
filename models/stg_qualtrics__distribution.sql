@@ -49,7 +49,7 @@ final as (
         cast(survey_link_expiration_date as {{ dbt.type_timestamp() }}) as survey_link_expires_at,
         survey_link_link_type as survey_link_type,
         survey_link_survey_id as survey_id,
-        _fivetran_deleted as is_deleted,
+        cast(_fivetran_deleted as boolean) as is_deleted,
         _fivetran_synced,
         source_relation
 

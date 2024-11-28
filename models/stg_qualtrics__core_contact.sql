@@ -36,7 +36,7 @@ final as (
         external_data_reference,
         language,
         cast(unsubscribed as boolean) as is_unsubscribed,
-        _fivetran_deleted as is_deleted,
+        cast(_fivetran_deleted as boolean) as is_deleted,
         _fivetran_synced,
         source_relation
 

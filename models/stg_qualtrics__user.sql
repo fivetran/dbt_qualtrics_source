@@ -46,7 +46,7 @@ final as (
         cast(unsubscribed as boolean) as is_unsubscribed,
         user_type,
         username,
-        _fivetran_deleted as is_deleted,
+        cast(_fivetran_deleted as boolean) as is_deleted,
         _fivetran_synced,
         source_relation
     from fields

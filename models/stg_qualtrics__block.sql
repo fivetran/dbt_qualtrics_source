@@ -33,7 +33,7 @@ final as (
         randomize_questions,
         survey_id,
         type,
-        _fivetran_deleted as is_deleted,
+        cast(_fivetran_deleted as boolean) as is_deleted,
         _fivetran_synced,
         source_relation
 

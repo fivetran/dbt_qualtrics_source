@@ -49,7 +49,7 @@ final as (
         cast(last_accessed as {{ dbt.type_timestamp() }}) as last_accessed_at,
         cast(last_activated as {{ dbt.type_timestamp() }}) as last_activated_at,
         cast(last_modified as {{ dbt.type_timestamp() }}) as last_modified_at,
-        _fivetran_deleted as is_deleted,
+        cast(_fivetran_deleted as boolean) as is_deleted,
         _fivetran_synced,
         source_relation
 
