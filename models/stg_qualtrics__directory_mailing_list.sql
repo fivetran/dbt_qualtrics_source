@@ -32,7 +32,7 @@ final as (
         cast(last_modified_date as {{ dbt.type_timestamp() }}) as last_modified_at,
         name,
         owner_id as owner_user_id,
-        cast(_fivetran_deleted as boolean) as is_deleted,
+        cast(_fivetran_deleted as {{ dbt.type_boolean() }}) as is_deleted,
         _fivetran_synced,
         source_relation
 

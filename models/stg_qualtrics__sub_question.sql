@@ -31,7 +31,7 @@ final as (
         question_id,
         survey_id,
         text,
-        cast(_fivetran_deleted as boolean) as is_deleted,
+        cast(_fivetran_deleted as {{ dbt.type_boolean() }}) as is_deleted,
         _fivetran_synced,
         source_relation
         

@@ -32,7 +32,7 @@ final as (
         name,
         category,
         folder,
-        cast(_fivetran_deleted as boolean) as is_deleted,
+        cast(_fivetran_deleted as {{ dbt.type_boolean() }}) as is_deleted,
         _fivetran_synced,
         source_relation
 

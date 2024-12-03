@@ -1,3 +1,9 @@
+# dbt_qualtrics_source v0.2.3
+[PR #12](https://github.com/fivetran/dbt_qualtrics_source/pull/12) includes the following update:
+
+## Under the Hood
+- Explicitly casts all boolean fields as `{{ dbt.type_boolean() }}`.
+
 # dbt_qualtrics_source v0.2.2
 [PR #9](https://github.com/fivetran/dbt_qualtrics_source/pull/9) includes the following updates: 
 

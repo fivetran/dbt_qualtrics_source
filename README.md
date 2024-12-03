@@ -83,7 +83,7 @@ vars:
 ```
 
 ### (Optional) Step 5: Additional configurations
-<details><summary>Expand to view configurations</summary>
+<details open><summary>Expand to view configurations</summary>
     
 #### Passing Through Additional Fields
 This package includes all source columns defined in the macros folder. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Datatype casting is configured via a sql snippet within the `transform_sql` key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:
