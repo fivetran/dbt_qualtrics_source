@@ -1,5 +1,5 @@
 {{
-    fivetran_utils.union_data(
+    qualtrics_union_data(
         table_identifier='question', 
         database_variable='qualtrics_database', 
         schema_variable='qualtrics_schema', 
