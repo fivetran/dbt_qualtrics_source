@@ -29,12 +29,12 @@ final as (
         cast(creation_date as {{ dbt.type_timestamp() }}) as created_at,
         description as version_description,
         id as version_id,
-        published as is_published,
+        cast(published as {{ dbt.type_boolean() }}) as is_published,
         survey_id,
         user_id as publisher_user_id,
         version_number,
-        was_published,
-        _fivetran_deleted as is_deleted,
+        cast(was_published as {{ dbt.type_boolean() }}) as was_published,
+        cast(_fivetran_deleted as {{ dbt.type_boolean() }}) as is_deleted,
         _fivetran_synced,
         source_relation
         

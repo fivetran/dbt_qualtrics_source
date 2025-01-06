@@ -1,7 +1,7 @@
 {{ config(enabled=var('qualtrics__using_core_mailing_lists', false)) }}
 -- can disable
 {{
-    fivetran_utils.union_data(
+    qualtrics_union_data(
         table_identifier='core_mailing_list', 
         database_variable='qualtrics_database', 
         schema_variable='qualtrics_schema', 

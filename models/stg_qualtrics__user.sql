@@ -43,10 +43,10 @@ final as (
         response_count_deleted,
         response_count_generated,
         time_zone,
-        unsubscribed as is_unsubscribed,
+        cast(unsubscribed as {{ dbt.type_boolean() }}) as is_unsubscribed,
         user_type,
         username,
-        _fivetran_deleted as is_deleted,
+        cast(_fivetran_deleted as {{ dbt.type_boolean() }}) as is_deleted,
         _fivetran_synced,
         source_relation
     from fields

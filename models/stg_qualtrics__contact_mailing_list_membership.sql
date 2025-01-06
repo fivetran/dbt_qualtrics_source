@@ -33,7 +33,7 @@ final as (
         name,
         owner_id as owner_user_id,
         cast(unsubscribe_date as {{ dbt.type_timestamp() }}) as unsubscribed_at,
-        unsubscribed as is_unsubscribed,
+        cast(unsubscribed as {{ dbt.type_boolean() }}) as is_unsubscribed,
         _fivetran_synced,
         source_relation
 

@@ -45,7 +45,7 @@ If you  are **not** using the [Qualtrics transformation package](https://github.
 ```yml
 packages:
   - package: fivetran/qualtrics_source
-    version: [">=0.2.0", "<0.3.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.3.0", "<0.4.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 ### Step 3: Define database and schema variables
@@ -78,12 +78,12 @@ By default, this package does not bring in data from the Qualtrics Research Core
 
 ```yml
 vars:
-    qualtrics__using_core_contacts: False # default = True
-    qualtrics__using_core_mailing_lists: False # default = True
+    qualtrics__using_core_contacts: True # default = False
+    qualtrics__using_core_mailing_lists: True # default = False
 ```
 
 ### (Optional) Step 5: Additional configurations
-<details><summary>Expand to view configurations</summary>
+<details open><summary>Expand to view configurations</summary>
     
 #### Passing Through Additional Fields
 This package includes all source columns defined in the macros folder. You can add more columns using our pass-through column variables. These variables allow for the pass-through fields to be aliased (`alias`) and casted (`transform_sql`) if desired, but not required. Datatype casting is configured via a sql snippet within the `transform_sql` key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:
@@ -122,7 +122,7 @@ models:
 ```
 
 #### Change the source table references
-If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
+If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable. This config is available only when running the package on a single connector.
 > IMPORTANT: See this project's [`src_qualtrics.yml`](https://github.com/fivetran/dbt_qualtrics_source/blob/main/models/src_qualtrics.yml) for the default names.
     
 ```yml

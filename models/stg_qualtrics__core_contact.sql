@@ -35,8 +35,8 @@ final as (
         {{ dbt.split_part('email', "'@'", 2) }} as email_domain,
         external_data_reference,
         language,
-        unsubscribed as is_unsubscribed,
-        _fivetran_deleted as is_deleted,
+        cast(unsubscribed as {{ dbt.type_boolean() }}) as is_unsubscribed,
+        cast(_fivetran_deleted as {{ dbt.type_boolean() }}) as is_deleted,
         _fivetran_synced,
         source_relation
 
