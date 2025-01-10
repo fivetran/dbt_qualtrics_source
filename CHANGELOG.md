@@ -1,3 +1,8 @@
+# dbt_qualtrics_source version.version
+
+## Documentation
+- Corrected references to connectors and connections in the README. ([#14](https://github.com/fivetran/dbt_qualtrics_source/pull/14))
+
 # dbt_qualtrics_source v0.3.0
 [PR #12](https://github.com/fivetran/dbt_qualtrics_source/pull/12) includes the following update:
 
