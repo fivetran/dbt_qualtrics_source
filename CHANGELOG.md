@@ -1,3 +1,8 @@
+# dbt_qualtrics_source version.version
+
+## Documentation
+- Corrected references to connectors and connections in the README. ([#14](https://github.com/fivetran/dbt_qualtrics_source/pull/14))
+
 # dbt_qualtrics_source v0.3.0
 [PR #12](https://github.com/fivetran/dbt_qualtrics_source/pull/12) includes the following update:
 
@@ -5,7 +10,7 @@
 - Explicitly casts all boolean fields as `{{ dbt.type_boolean() }}`.
 - (Affects Redshift only) Creates new `qualtrics_union_data` macro to accommodate Redshift's treatment of empty tables.
   - For each staging model, if the source table is not found in any of your schemas, the package will create a empty table with 0 rows for non-Redshift warehouses and a table with 1 all-`null` row for Redshift destinations.
-  - This is necessary as Redshift will ignore explicit data casts when a table is completely empty and materialize every column as a `varchar`. This throws errors in downstream transformations in the `zendesk` package. The 1 row will ensure that Redshift will respect the package's datatype casts.
+  - This is necessary as Redshift will ignore explicit data casts when a table is completely empty and materialize every column as a `varchar`. This throws errors in downstream transformations in the `qualtrics` package. The 1 row will ensure that Redshift will respect the package's datatype casts.
 
 # dbt_qualtrics_source v0.2.2
 [PR #9](https://github.com/fivetran/dbt_qualtrics_source/pull/9) includes the following updates: 
