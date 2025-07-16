@@ -1,4 +1,6 @@
-<p align="center">
+# Qualtrics Source dbt Package ([Docs](https://fivetran.github.io/dbt_qualtrics_source/))
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_qualtrics_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -10,7 +12,6 @@
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
 </p>
 
-# Qualtrics Source dbt Package ([Docs](https://fivetran.github.io/dbt_qualtrics_source/))
 ## What does this dbt package do?
 <!--section="qualtrics_source_model"-->
 - Materializes [Qualtrics staging tables](https://fivetran.github.io/dbt_qualtrics_source/#!/overview/github_source/models/?g_v=1) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/qualtrics/#schemainformation). These staging tables clean, test, and prepare your Qualtrics data from [Fivetran's connector](https://fivetran.com/docs/applications/qualtrics) for analysis by doing the following:
@@ -45,7 +46,7 @@ If you  are **not** using the [Qualtrics transformation package](https://github.
 ```yml
 packages:
   - package: fivetran/qualtrics_source
-    version: [">=0.3.0", "<0.4.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.4.0", "<0.5.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 ### Step 3: Define database and schema variables
