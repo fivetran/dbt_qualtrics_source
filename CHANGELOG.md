@@ -1,6 +1,6 @@
 # dbt_qualtrics_source v0.4.0
 
-[PR #16](https://github.com/fivetran/dbt_qualtrics_source/pull/16) includes the following updates:
+[PR #16](https://github.com/fivetran/dbt_qualtrics_source/pull/16) and [PR #17](https://github.com/fivetran/dbt_qualtrics_source/pull/17) include the following updates:
 
 ## Schema & Data Updates
 **1 new column introduced and 1 schema change**
@@ -10,8 +10,15 @@
 | `stg_qualtrics__question_response` | New column |  | `response_text` | Captures the free text response associated with the question. |
 
 ## Under the Hood
-- Introduced the generate-docs github workflow for consistent docs generation.
-- Included an updated version of the maintainer pull request template.
+- Updated conditions in `.github/workflows/auto-release.yml`.
+- Added `.github/workflows/generate-docs.yml`.
+- Added `+docs: show: False` to `integration_tests/dbt_project.yml`.
+- Migrated `flags` (e.g., `send_anonymous_usage_stats`, `use_colors`) from `sample.profiles.yml` to `integration_tests/dbt_project.yml`.
+- Updated `maintainer_pull_request_template.md` with improved checklist.
+- Refreshed README tag block:
+  - Standardized Quickstart-compatible badge set
+  - Left-aligned and positioned below the H1 title.
+- Updated `.gitignore` to exclude additional DBT, Python, and system artifacts.
 
 # dbt_qualtrics_source v0.3.0
 [PR #12](https://github.com/fivetran/dbt_qualtrics_source/pull/12) includes the following update:
