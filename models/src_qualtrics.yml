@@ -176,7 +176,7 @@ sources:
             description: "{{ doc('sub_question_key') }}"
           - name: sub_question_text
             description: "{{ doc('sub_question_text') }}"
-          - name: response_text
+          - name: text
             description: "{{ doc('response_text') }}"
           - name: value
             description: "{{ doc('response_value') }}"
