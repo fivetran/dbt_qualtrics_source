@@ -1,4 +1,3 @@
-
 # Qualtrics Source dbt Package ([Docs](https://fivetran.github.io/dbt_qualtrics_source/))
 
 <p align="left">
@@ -47,7 +46,7 @@ If you  are **not** using the [Qualtrics transformation package](https://github.
 ```yml
 packages:
   - package: fivetran/qualtrics_source
-    version: [">=0.3.0", "<0.4.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.4.0", "<0.5.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 ### Step 3: Define database and schema variables

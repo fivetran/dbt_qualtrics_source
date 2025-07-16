@@ -1,7 +1,16 @@
-[PR #17](https://github.com/fivetran/dbt_qualtrics_source/pull/17) includes the following updates:
+# dbt_qualtrics_source v0.4.0
 
-### Under the Hood - July 2025 Updates
 
+[PR #16](https://github.com/fivetran/dbt_qualtrics_source/pull/16) and [PR #17](https://github.com/fivetran/dbt_qualtrics_source/pull/17) include the following updates:
+
+## Schema & Data Updates
+**1 new column introduced and 1 schema change**
+
+| Data Model | Change Type | Old Name | New Name | Notes |
+| ---------- | ----------- | -------- | -------- | ----- |
+| `stg_qualtrics__question_response` | New column |  | `response_text` | Captures the free text response associated with the question. |
+
+## Under the Hood
 - Updated conditions in `.github/workflows/auto-release.yml`.
 - Added `.github/workflows/generate-docs.yml`.
 - Added `+docs: show: False` to `integration_tests/dbt_project.yml`.
@@ -10,17 +19,7 @@
 - Refreshed README tag block:
   - Standardized Quickstart-compatible badge set
   - Left-aligned and positioned below the H1 title.
-- Updated Python image version to `3.10.13` in `pipeline.yml`.
-- Added `CI_DATABRICKS_DBT_CATALOG` to:
-  - `.buildkite/hooks/pre-command` (as an export)
-  - `pipeline.yml` (under the `environment` block, after `CI_DATABRICKS_DBT_TOKEN`)
-- Added `certifi==2025.1.31` to `requirements.txt` (if missing).
 - Updated `.gitignore` to exclude additional DBT, Python, and system artifacts.
-
-# dbt_qualtrics_source version.version
-
-## Documentation
-- Corrected references to connectors and connections in the README. ([#14](https://github.com/fivetran/dbt_qualtrics_source/pull/14))
 
 # dbt_qualtrics_source v0.3.0
 [PR #12](https://github.com/fivetran/dbt_qualtrics_source/pull/12) includes the following update:

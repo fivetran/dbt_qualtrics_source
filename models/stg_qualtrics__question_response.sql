@@ -34,6 +34,7 @@ final as (
         response_id,
         sub_question_key,
         sub_question_text,
+        text as response_text,
         value,
         _fivetran_synced,
         source_relation
