@@ -1,6 +1,5 @@
 # dbt_qualtrics_source v0.4.0
 
-
 [PR #16](https://github.com/fivetran/dbt_qualtrics_source/pull/16) and [PR #17](https://github.com/fivetran/dbt_qualtrics_source/pull/17) include the following updates:
 
 ## Schema & Data Updates
