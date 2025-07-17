@@ -16,7 +16,6 @@
 - Migrated `flags` (e.g., `send_anonymous_usage_stats`, `use_colors`) from `sample.profiles.yml` to `integration_tests/dbt_project.yml`.
 - Updated `maintainer_pull_request_template.md` with improved checklist.
 - Refreshed README tag block:
-  - Standardized Quickstart-compatible badge set
   - Left-aligned and positioned below the H1 title.
 - Updated `.gitignore` to exclude additional DBT, Python, and system artifacts.
 
