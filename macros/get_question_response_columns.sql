@@ -10,6 +10,7 @@
     {"name": "response_id", "datatype": dbt.type_string()},
     {"name": "sub_question_key", "datatype": dbt.type_string()},
     {"name": "sub_question_text", "datatype": dbt.type_string()},
+    {"name": "text", "datatype": dbt.type_string()},
     {"name": "value", "datatype": dbt.type_string()}
 ] %}
 

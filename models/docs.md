@@ -360,6 +360,10 @@ The key of the `QUESTION_OPTION` that was chosen for the sub-question.
 Sub question text.
 {% enddocs %}
 
+{% docs response_text %}
+Text response provided by the respondent.
+{% enddocs %}
+
 {% docs response_value %}
 Value of the question response.
 {% enddocs %}

@@ -1,5 +1,5 @@
 name: 'qualtrics_source_integration_tests'
-version: '0.3.0'
+version: '0.4.0'
 profile: 'integration_tests'
 config-version: 2
 
@@ -18,6 +18,8 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 
 seeds:
+  +docs:
+    show: False
   qualtrics_source_integration_tests:
     +column_types:
       _fivetran_synced: timestamp
@@ -34,3 +36,7 @@ seeds:
     directory_contact:
       +column_types:
         phone: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar' }}"
+
+flags:
+  send_anonymous_usage_stats: False
+  use_colors: True
