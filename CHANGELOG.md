@@ -3,7 +3,7 @@
 [PR #16](https://github.com/fivetran/dbt_qualtrics_source/pull/16) and [PR #17](https://github.com/fivetran/dbt_qualtrics_source/pull/17) include the following updates:
 
 ## Schema & Data Updates
-**1 new column introduced and 1 schema change**
+**1 total changes • 0 possible breaking changes**
 
 | Data Model | Change Type | Old Name | New Name | Notes |
 | ---------- | ----------- | -------- | -------- | ----- |
